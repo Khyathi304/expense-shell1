@@ -7,23 +7,6 @@ check_root
 echo "Please enter DB password:"
 read -s mysql_root_password
 
-VALIDATE(){
-    if [ $1 -ne 0 ]
-    then
-        echo -e "$2... $R Failure $N"
-        exit 1
-    else
-        echo -e "$2... $G Success $N"
-        fi
-}
-if [ $USERID -ne 0 ]
-then
-echo "Please run the script with root access"
-exit 1
-else
-echo "You are super User"
-fi
-
 dnf module disable nodejs -y &>>$LOGFILE
 VALIDATE $? "Disabling default nodejs" 
 
